@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TarefaController extends Controller
 {
@@ -12,7 +13,7 @@ class TarefaController extends Controller
      */
     public function index()
     {
-        //
+        return Auth::user()->name;
     }
 
     /**
