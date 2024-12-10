@@ -9,11 +9,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
-Route::resource('tarefa', TarefaController::class)->middleware('auth');
+Route::resource('tarefa', TarefaController::class)->middleware(['auth', 'verified']);
 
 Route::get('/email-teste', function(){
     return new MensagemTesteMail();
