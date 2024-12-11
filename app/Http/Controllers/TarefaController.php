@@ -13,7 +13,13 @@ class TarefaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() {}
+    public function index()
+    {
+
+        $tarefas = Tarefa::where('user_id', auth()->user()->id)->paginate(3);
+
+        return view('tarefa.index', ['tarefas' => $tarefas]);
+    }
 
     /**
      * Show the form for creating a new resource.
