@@ -57,6 +57,11 @@ class TarefaController extends Controller
      */
     public function edit(Tarefa $tarefa)
     {
+
+        if(auth()->user()->id !== $tarefa->user_id){
+            return view('acesso-negado');
+        }
+
         return view('tarefa.edit', ['tarefa' => $tarefa]);
     }
 
@@ -65,8 +70,12 @@ class TarefaController extends Controller
      */
     public function update(Request $request, Tarefa $tarefa)
     {
-        $tarefa->update($request->all());
 
+        if(auth()->user()->id !== $tarefa->user_id){
+            return view('acesso-negado');
+        }
+
+        $tarefa->update($request->all());
         return redirect()->route('tarefa.show', ['tarefa' => $tarefa->id]);
     }
 
