@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\tarefasExport;
 use App\Mail\NovaTarefaMail;
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TarefaController extends Controller
 {
@@ -77,6 +79,10 @@ class TarefaController extends Controller
 
         $tarefa->update($request->all());
         return redirect()->route('tarefa.show', ['tarefa' => $tarefa->id]);
+    }
+
+    public function export(){
+        return Excel::download(new tarefasExport, 'tarefa.xlsx');
     }
 
     /**
