@@ -90,9 +90,9 @@ class TarefaController extends Controller
         }else{
 
             $data = auth()->user()->tarefas()->get();
-
             $pdf = Pdf::loadView('tarefa.pdf', ['data' => $data]);
-            return $pdf->download('lista_tarefas.pdf');
+            // return $pdf->download('lista_tarefas.pdf');
+            return $pdf->stream('lista_tarefas.pdf');
         }
 
     }
