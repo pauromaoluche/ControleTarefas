@@ -11,8 +11,9 @@
                                 Tarefas
                             </div>
                             <div class="col-6">
-                                <a href="{{ route('tarefa.create') }}">Novo</a>
-                                <a href="{{ route('tarefa-export') }}">Exportar relatorio</a>
+                                <a href="{{ route('tarefa.create') }}" class="me-5">Novo</a>
+                                <a href="{{ route('tarefa-export', ['extensao' => 'xlsx']) }}" class="me-5">XLSX</a>
+                                <a href="{{ route('tarefa-export', ['extensao' => 'csv']) }}">CSV</a>
                             </div>
                         </div>
                         </div>

@@ -13,7 +13,7 @@ Auth::routes(['verify' => true]);
 
 Route::resource('tarefa', TarefaController::class)->middleware(['auth', 'verified']);
 
-Route::get('/tarefa-export', [TarefaController::class, 'export'])->name('tarefa-export')->middleware(['auth', 'verified']);
+Route::get('/tarefa-export/{extensao}', [TarefaController::class, 'export'])->name('tarefa-export')->middleware(['auth', 'verified']);
 
 Route::get('/email-teste', function(){
     return new MensagemTesteMail();
