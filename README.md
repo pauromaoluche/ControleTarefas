@@ -9,3 +9,5 @@ npm run dev
 
 Utilizado laravel-excel para exportação de relatorios excel
 https://laravel-excel.com/
+
+composer require mpdf/mpdf
