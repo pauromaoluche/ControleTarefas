@@ -84,7 +84,7 @@ class TarefaController extends Controller
     public function export($extensao)
     {
 
-        if ($extensao == 'xlsx' || $extensao == 'csv') {
+        if (in_array($extensao, ['xlsx', 'csv', 'pdf'])) {
             return Excel::download(new tarefasExport, 'tarefa.pdf' );
         }
 
