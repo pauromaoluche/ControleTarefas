@@ -13,3 +13,10 @@ https://laravel-excel.com/
 composer require mpdf/mpdf
 
 para configurar o mpdf no laravel-excel, ir em config/excel.php, pesquisar por 'pdf' e alterar para 'mpdf' o valor 'Excel::MPDF'
+
+
+composer require barryvdh/laravel-dompdf
+adicionar no bootstrap/providers
+
+rodar 
+    php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
